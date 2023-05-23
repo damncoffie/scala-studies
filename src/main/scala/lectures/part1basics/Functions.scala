@@ -36,17 +36,23 @@ object Functions extends App {
 
   // 5.1 factorial
   def factorialFun(v: Int): Int = {
-    if (v == 1) v else v * factorialFun(v - 1)
+    if (v == 1) v
+    else v * factorialFun(v - 1)
   }
 
   println(factorialFun(5)) // 1 * 2 * 3 * 4 * 5 = 120
 
   // 5.2 fibonacci
   def fibonacciFun(v: Int): Int = {
-    if (v <= 1) v else fibonacciFun(v - 1) + fibonacciFun(v - 2)
+    if (v <= 1) v
+    else
+      println("v = " + v + " " +  (v - 1) + " - " + (v - 2))
+      val res = fibonacciFun(v - 1) + fibonacciFun(v - 2)
+      println("Claculated: " + res)
+      res
   }
 
-  println(fibonacciFun(7)) // 0 1 1 2 3 5 8 13
+  println("Fibonacci: " + fibonacciFun(7)) // 0 1 1 2 3 5 8 13
 
   // 5. Test if prime
   def isPrime(n: Int): Boolean = {
