@@ -52,30 +52,30 @@ object Generics extends App {
   // val newCage = new Cage(new Car) // compile error
 
 
+  // exercises
 
+  /*
+  1. Generic trait MyPredicate
+  */
+  trait MyPredicate[-T] {
+    def test(v: T): Boolean
+  }
+  
+  /*
+   2. Generic trait MyTrans[A, B]
+  */
+  trait MyTransformer[-A, B] {
+    def transform(a: A): B
+  }
+  
+  /*
+  * MyList:
+    - map(transformer) => MyList
+    - filter(predicate) => MyList
+    - flatMap(transformer from A to MyList[B]) => MyList[B]
+
+    [1,2,3].map(n * 2) = [2,4,6]
+    [1,2,3,4].filter(n % 2) = [2,4]
+    [1,2,3].flatMap(n => [n, n+1]) => [1,2,2,3,3,4]
+  */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
