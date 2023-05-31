@@ -57,16 +57,16 @@ object Generics extends App {
   /*
   1. Generic trait MyPredicate
   */
-  trait MyPredicate[-T] {
+/*  trait MyPredicate[-T] { // T => Boolean
     def test(v: T): Boolean
   }
   
   /*
    2. Generic trait MyTrans[A, B]
   */
-  trait MyTransformer[-A, B] {
+  trait MyTransformer[-A, B] { // A => B
     def transform(a: A): B
-  }
+  }*/
   
   /*
   * MyList:
