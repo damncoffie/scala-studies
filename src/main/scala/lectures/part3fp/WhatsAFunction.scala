@@ -34,15 +34,19 @@ object WhatsAFunction extends App {
   }
 
   // 2. define a function which takes an int and returns another function which takes an int a returns int
-  val supperAdder: Function1[Int, Function1[Int, Int]] = new Function[Int, Function1[Int, Int]] {
+  val superAdder: Function1[Int, Function1[Int, Int]] = new Function[Int, Function1[Int, Int]] {
     override def apply(x: Int): Function1[Int, Int] = new Function[Int, Int] {
       override def apply(y: Int): Int = x + y
     }
   }
 
-  val adder3 = supperAdder(3)
+  val adder3 = superAdder(3)
   println(adder3(4))
-  println(supperAdder(3)(4)) // curried function (called with multiple parameter lists, returns functions)
+  println(superAdder(3)(4)) // curried function (called with multiple parameter lists, returns functions)
+
+  // lambda style
+  val lambdaSuperAdder = (x: Int) => (y: Int) => x + y
+  println(lambdaSuperAdder(3)(4)) // curried function (called with multiple parameter lists, returns functions)
 }
 
 trait MyFunction[A, B] {

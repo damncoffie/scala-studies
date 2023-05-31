@@ -135,10 +135,14 @@ object ListTest extends App {
     override def apply(v: Int): Boolean = v % 2 == 0
   }).toString)
 
+  println(listOfIntegers.filter(v => v % 2 == 0).toString) // lambda style
+
   // map test
   println(listOfIntegers.map(new Function1[Int, Int] {
     override def apply(a: Int): Int = a * 2
   }).toString)
+
+  println(listOfIntegers.map(a => a * 2).toString) // lambda style
 
   // concatenation test
   println((listOfIntegers ++ anotherListOfIntegers).toString)
@@ -147,4 +151,6 @@ object ListTest extends App {
   println(listOfIntegers.flatMap(new Function1[Int, MyList[Int]] {
     override def apply(elem: Int): MyList[Int] = new Cons(elem, new Cons(elem + 1, Empty))
   }).toString)
+
+  println(listOfIntegers.flatMap(elem => new Cons(elem, new Cons(elem + 1, Empty))).toString) // lambda style
 }
