@@ -215,4 +215,12 @@ object ListTest extends App {
 
   // fold test
   println(listOfIntegers.fold(0)(_ + _))
+
+
+  // for comprehensions
+  val combinations = for {
+    n <- listOfIntegers
+    string <- listOfStrings
+  } yield n + "-" + string
+  println(combinations)
 }
