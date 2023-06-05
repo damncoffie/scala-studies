@@ -62,8 +62,8 @@ object TuplesAndMaps extends App {
   println(phoneBook4.map(pair => pair._1.toLowerCase -> pair._2)) // Map(jim -> 789) - lose some data
 
   // 2
-  def add(network: Map[String, List[String]], person: String): Map[String, List[String]] =
-    network + (person -> List())
+  def add(network: Map[String, Set[String]], person: String): Map[String, Set[String]] =
+    network + (person -> Set())
 
   // add to friends mutually
   def friend(network: Map[String, Set[String]], a: String, b: String): Map[String, Set[String]] = {
@@ -84,14 +84,14 @@ object TuplesAndMaps extends App {
   def remove(network: Map[String, Set[String]], person: String): Map[String, Set[String]] = {
     def removeAux(friends: Set[String], networkAcc: Map[String, Set[String]]) : Map[String, Set[String]] =
       if (friends.isEmpty) networkAcc
-      else removeAux(friends.tail, unfriend((networkAcc, person, friends.head)))
+      else removeAux(friends.tail, unfriend(networkAcc, person, friends.head))
 
     val unfriended = removeAux(network(person), network)
     unfriended - person
   }
 
-  val empty: Map[String, Set[String]] = new Map()
-  val network = add(add(empty, "Mary"))
+  val empty: Map[String, Set[String]] = Map()
+  val network = add(add(empty, "Bob"), "Mary")
   println(network)
   println(unfriend(friend(network, "Bob", "Mary"), "Bob", "Mary"))
   println(remove(friend(network, "Bob", "Mary"), "Bob"))
