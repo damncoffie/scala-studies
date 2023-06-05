@@ -54,7 +54,8 @@ object Inheritance extends App {
   // super
 
   // preventing overrides
-  // 1 - use final on member
-  // 2 - use final on class itself (can't be extended at all)
+  // 1 - use final on member.
+  // 2 - use final on class itself (can't be extended at all).
   // 3 - seal the class = extends classes in THIS FILE, but prevent extension in other files
+  // (if you want to be exhaustive in your class hierarchy).
 }
